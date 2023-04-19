@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <header>
+    <a href="../index.html">
+      <img height="64" src="../assets/home.png" />
+    </a>
+    Js Calculator
+    <img width="64" />
+  </header>
+  <body class="">
+    <div class="center-flex">
+      <div class="border center-flex">
+        <div id="output" class="center-flex">
+          0
+        </div>
+        <div class="input">
+          <!-- ? First Row of buttons -->
+          <button
+            class="input-item operation-item-secondary center-flex"
+            onclick="number_clicked('CE')"
+          >
+            CE
+          </button>
+          <button class="input-item operation-item-secondary center-flex">
+            C
+          </button>
+          <button class="input-item operation-item-secondary center-flex">
+            del
+          </button>
+          <button
+            class="input-item operation-item center-flex"
+            onclick="operation_clicked('/')"
+          >
+            ÷
+          </button>
+          <!-- ? 2nd Row of buttons -->
+          <button class="input-item center-flex" onclick="number_clicked('7')">
+            7
+          </button>
+          <button class="input-item center-flex" onclick="number_clicked('8')">
+            8
+          </button>
+          <button class="input-item center-flex" onclick="number_clicked('9')">
+            9
+          </button>
+          <button
+            class="input-item operation-item center-flex"
+            onclick="operation_clicked('*')"
+          >
+            X
+          </button>
+          <!-- ? 3rd Row of buttons -->
+          <button class="input-item center-flex" onclick="number_clicked('4')">
+            4
+          </button>
+          <button class="input-item center-flex" onclick="number_clicked('5')">
+            5
+          </button>
+          <button class="input-item center-flex" onclick="number_clicked('6')">
+            6
+          </button>
+          <button
+            class="input-item operation-item center-flex"
+            onclick="operation_clicked('-')"
+          >
+            —
+          </button>
+          <!-- ? 4th Row of buttons -->
+          <button class="input-item center-flex" onclick="number_clicked('1')">
+            1
+          </button>
+          <button class="input-item center-flex" onclick="number_clicked('2')">
+            2
+          </button>
+          <button class="input-item center-flex" onclick="number_clicked('3')">
+            3
+          </button>
+          <button
+            class="input-item operation-item center-flex"
+            onclick="operation_clicked('+')"
+          >
+            +
+          </button>
+          <!-- ? Last Row of buttons -->
+          <button class="input-item center-flex">+/—</button>
+          <button class="input-item center-flex" onclick="number_clicked('0')">
+            0
+          </button>
+          <button class="input-item center-flex">.</button>
+          <button class="input-item result-item center-flex" onclick="result()">
+            =
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="math.js"></script>
+</html>
