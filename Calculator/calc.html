@@ -20,80 +20,88 @@
         <div id="output" class="center-flex">
           0
         </div>
-        <div class="input">
+        <div class="input-grid">
           <!-- ? First Row of buttons -->
           <button
-            class="input-item operation-item-secondary center-flex"
-            onclick="number_clicked('CE')"
+            class="input-item c-e center-flex"
+            onclick="clearEverything()"
           >
             CE
           </button>
-          <button class="input-item operation-item-secondary center-flex">
+          <button
+            class="input-item operation-item-secondary center-flex"
+            onclick="clearOp()"
+          >
             C
           </button>
-          <button class="input-item operation-item-secondary center-flex">
+          <button
+            class="input-item operation-item-secondary center-flex"
+            onclick="del()"
+          >
             del
           </button>
           <button
             class="input-item operation-item center-flex"
-            onclick="operation_clicked('/')"
+            onclick="operationClicked('/')"
           >
             ÷
           </button>
           <!-- ? 2nd Row of buttons -->
-          <button class="input-item center-flex" onclick="number_clicked('7')">
+          <button class="input-item center-flex" onclick="digitClicked('7')">
             7
           </button>
-          <button class="input-item center-flex" onclick="number_clicked('8')">
+          <button class="input-item center-flex" onclick="digitClicked('8')">
             8
           </button>
-          <button class="input-item center-flex" onclick="number_clicked('9')">
+          <button class="input-item center-flex" onclick="digitClicked('9')">
             9
           </button>
           <button
             class="input-item operation-item center-flex"
-            onclick="operation_clicked('*')"
+            onclick="operationClicked('*')"
           >
             X
           </button>
           <!-- ? 3rd Row of buttons -->
-          <button class="input-item center-flex" onclick="number_clicked('4')">
+          <button class="input-item center-flex" onclick="digitClicked('4')">
             4
           </button>
-          <button class="input-item center-flex" onclick="number_clicked('5')">
+          <button class="input-item center-flex" onclick="digitClicked('5')">
             5
           </button>
-          <button class="input-item center-flex" onclick="number_clicked('6')">
+          <button class="input-item center-flex" onclick="digitClicked('6')">
             6
           </button>
           <button
             class="input-item operation-item center-flex"
-            onclick="operation_clicked('-')"
+            onclick="operationClicked('-')"
           >
             —
           </button>
           <!-- ? 4th Row of buttons -->
-          <button class="input-item center-flex" onclick="number_clicked('1')">
+          <button class="input-item center-flex" onclick="digitClicked('1')">
             1
           </button>
-          <button class="input-item center-flex" onclick="number_clicked('2')">
+          <button class="input-item center-flex" onclick="digitClicked('2')">
             2
           </button>
-          <button class="input-item center-flex" onclick="number_clicked('3')">
+          <button class="input-item center-flex" onclick="digitClicked('3')">
             3
           </button>
           <button
             class="input-item operation-item center-flex"
-            onclick="operation_clicked('+')"
+            onclick="operationClicked('+')"
           >
             +
           </button>
           <!-- ? Last Row of buttons -->
-          <button class="input-item center-flex">+/—</button>
-          <button class="input-item center-flex" onclick="number_clicked('0')">
+          <button class="input-item center-flex" onclick="negate()">+/—</button>
+          <button class="input-item center-flex" onclick="digitClicked('0')">
             0
           </button>
-          <button class="input-item center-flex">.</button>
+          <button class="input-item center-flex" onclick="digitClicked('.')">
+            .
+          </button>
           <button class="input-item result-item center-flex" onclick="result()">
             =
           </button>

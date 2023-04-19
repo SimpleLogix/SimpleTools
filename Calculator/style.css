@@ -49,7 +49,7 @@ a {
   background-color: rgba(188, 188, 188, 0.06);
 }
 
-.input {
+.input-grid {
   display: grid;
   grid-template-columns: [first] 100px [second] 100px [third] 100px [fourth] 100px;
   flex: 3;
@@ -74,7 +74,7 @@ a {
 .input-item.operation-item {
   font-weight: bold;
   font-size: 14px;
-  background-color: rgba(72, 0, 72, 0.3);
+  background-color: rgba(72, 0, 72, 0.20);
 }
 
 .input-item.operation-item-secondary {
@@ -86,5 +86,11 @@ a {
 .input-item.result-item {
   font-weight: bold;
   font-size: 14px;
-  background-color: rgba(255, 193, 7, 0.33);
+  background-color: rgba(255, 193, 7, 0.25);
+}
+
+.input-item.c-e {
+  font-weight: bold;
+  font-size: 14px;
+  background-color: rgba(128, 32, 32, 0.43);
 }
