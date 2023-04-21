@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
   </head>
   <header>
     <a href="../index.html">
@@ -17,92 +18,89 @@
   <body class="">
     <div class="center-flex">
       <div class="border center-flex">
-        <div id="output" class="center-flex">
-          0
+        <div class="center-flex output">
+          <span id="op"></span>
+          <br />
+          <br />
+          <span id="input">1</span>
         </div>
         <div class="input-grid">
           <!-- ? First Row of buttons -->
-          <button
-            class="input-item c-e center-flex"
-            onclick="clearEverything()"
-          >
+          <button class="input-item c-e" onclick="clearEverything()">
             CE
           </button>
           <button
-            class="input-item operation-item-secondary center-flex"
+            class="input-item operation-item-secondary"
             onclick="clearOp()"
           >
             C
           </button>
-          <button
-            class="input-item operation-item-secondary center-flex"
-            onclick="del()"
-          >
+          <button class="input-item operation-item-secondary" onclick="del()">
             del
           </button>
           <button
-            class="input-item operation-item center-flex"
+            class="input-item operation-item"
             onclick="operationClicked('/')"
           >
             ÷
           </button>
           <!-- ? 2nd Row of buttons -->
-          <button class="input-item center-flex" onclick="digitClicked('7')">
+          <button class="input-item" onclick="digitClicked('7')">
             7
           </button>
-          <button class="input-item center-flex" onclick="digitClicked('8')">
+          <button class="input-item" onclick="digitClicked('8')">
             8
           </button>
-          <button class="input-item center-flex" onclick="digitClicked('9')">
+          <button class="input-item" onclick="digitClicked('9')">
             9
           </button>
           <button
-            class="input-item operation-item center-flex"
-            onclick="operationClicked('*')"
+            class="input-item operation-item"
+            onclick="operationClicked('x')"
           >
             X
           </button>
           <!-- ? 3rd Row of buttons -->
-          <button class="input-item center-flex" onclick="digitClicked('4')">
+          <button class="input-item" onclick="digitClicked('4')">
             4
           </button>
-          <button class="input-item center-flex" onclick="digitClicked('5')">
+          <button class="input-item" onclick="digitClicked('5')">
             5
           </button>
-          <button class="input-item center-flex" onclick="digitClicked('6')">
+          <button class="input-item" onclick="digitClicked('6')">
             6
           </button>
           <button
-            class="input-item operation-item center-flex"
+            class="input-item operation-item"
             onclick="operationClicked('-')"
           >
             —
           </button>
           <!-- ? 4th Row of buttons -->
-          <button class="input-item center-flex" onclick="digitClicked('1')">
+          <button class="input-item" onclick="digitClicked('1')">
             1
           </button>
-          <button class="input-item center-flex" onclick="digitClicked('2')">
+          <button class="input-item" onclick="digitClicked('2')">
             2
           </button>
-          <button class="input-item center-flex" onclick="digitClicked('3')">
+          <button class="input-item" onclick="digitClicked('3')">
             3
           </button>
           <button
-            class="input-item operation-item center-flex"
+            class="input-item operation-item"
             onclick="operationClicked('+')"
           >
             +
           </button>
           <!-- ? Last Row of buttons -->
-          <button class="input-item center-flex" onclick="negate()">+/—</button>
-          <button class="input-item center-flex" onclick="digitClicked('0')">
+          <button class="input-item" onclick="negate()">+/—</button>
+          <button class="input-item" onclick="digitClicked('0')">
             0
           </button>
-          <button class="input-item center-flex" onclick="digitClicked('.')">
+          <button class="input-item" onclick="digitClicked('.')">
             .
           </button>
-          <button class="input-item result-item center-flex" onclick="result()">
+          <button class="input-item result-item" onclick="result()">
             =
           </button>
         </div>
