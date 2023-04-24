@@ -8,7 +8,7 @@ header {
 }
 
 body {
-  height: 99vh;
+  height: calc(98vh + 3px);
   background-image: linear-gradient(-210deg, #6441a5 20%, #2a0845);
 }
 

@@ -1,0 +1,162 @@
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+}
+
+.flex-left,
+.flex-mid {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1%;
+}
+
+.flex-left {
+  flex-grow: 1;
+  margin-left: 8%;
+}
+
+.flex-mid {
+  flex-grow: 9;
+}
+
+.flex-right {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  gap: 140px;
+  margin-right: 4%;
+}
+
+.flex-right-item {
+  opacity: 1;
+}
+
+.flex-right-item:hover {
+  opacity: 0.7;
+}
+
+.center-flex {
+  justify-content: center;
+}
+
+#grid,
+#colorPicker {
+  display: grid;
+  border: 2px solid gray;
+}
+
+.cell {
+  border: 1px solid gray;
+  background-color: transparent;
+}
+
+.button-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+p {
+  font-size: 17px;
+  color: aliceblue;
+}
+
+#gridSizeSlider {
+  opacity: 0.7;
+}
+
+#gridSizeSlider:hover {
+  opacity: 1;
+}
+
+#gridSizeText {
+  font-size: 12.5px;
+}
+
+#colorPicker {
+  grid-template-columns: repeat(4, 40px);
+  grid-template-rows: repeat(6, 45px);
+}
+
+.color {
+  border: 1px solid gray;
+  opacity: 0.85;
+}
+
+.color-selected {
+  border: 3px dotted black;
+  opacity: 1;
+}
+
+.color:hover {
+  opacity: 1;
+}
+
+.mode-row,
+.brush-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.mode-item {
+  width: 40px;
+  height: 40px;
+  border: 1px solid gray;
+}
+
+.mode-item-selected {
+  border: 4px solid black;
+}
+
+#rainbow {
+  background: conic-gradient(
+    from 0deg,
+    red,
+    orange 15%,
+    yellow 30%,
+    green 45%,
+    blue 60%,
+    indigo 75%,
+    violet 90%,
+    red
+  );
+}
+
+#gray-scale {
+  background: linear-gradient(
+    -215deg,
+    #ffffff 0%,
+    #c7c7c7 25%,
+    #8f8f8f 50%,
+    #565656 75%,
+    #000000 100%
+  );
+}
+
+#eraser {
+  display: grid;
+  grid-template-columns: repeat(9, 4.5px);
+  grid-template-rows: repeat(8, 5px);
+}
+
+.brush-row {
+  color: #c7c7c7;
+  font-size: 18px;
+  gap: 15px;
+}
+
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+}
