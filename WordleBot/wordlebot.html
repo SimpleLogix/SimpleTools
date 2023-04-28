@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordle Bot</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <header>
+    <a href="../index.html">
+      <img class="back-arrow" height="64" src="../assets/arrow.png" />
+    </a>
+    Wordle bot
+    <img width="84" />
+  </header>
+  <body>
+    <div class="flex">
+      <div class="left-container">
+        <div id="words-container"></div>
+        <div class="switch-row">
+          <p>Game Mode</p>
+          <label class="switch">
+            <input type="checkbox" id="mode" />
+            <span class="slider round"></span>
+          </label>
+          <p>Bot Mode</p>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="title">Guesses</div>
+        <div class="guess-container">
+          <div>ARISE</div>
+          <div class="divider"></div>
+          <div>92%</div>
+        </div>
+        <div class="guess-container">
+          <div>ARISE</div>
+          <div class="divider"></div>
+          <div>92%</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="card-logic.js" type="module"></script>
+</html>

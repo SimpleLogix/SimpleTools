@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Rewind</title>
+    <link rel="stylesheet" href="device_style.css" />
+    <link rel="stylesheet" href="game_style.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <header>
+    <a href="../index.html">
+      <img height="64" src="../assets/arrow.png" />
+    </a>
+    Retro Rewind
+    <img width="64" />
+  </header>
+  <body>
+    <!--  centered div -->
+    <div class="center-flex">
+      <div class="device center-flex">
+        <!--? top half of the device: screen -->
+        <!-- screen is a stack of 2 elements: gameplay & game-pause-text -->
+        <div class="screen flex">
+          <div id="game-play-side"></div>
+          <div class="score-side flex">
+            <p class="score-title">Score</p>
+            <p id="score-text">0</p>
+          </div>
+          <div id="game-paused-text" class="screen-element">
+            <p class="game-paused-red">
+              GAME PAUSED
+            </p>
+          </div>
+        </div>
+
+        <!--? second half of the device : controls -->
+        <div class="controls flex">
+          <div class="dpad"></div>
+          <div id="button-one" class="unselectable flex">A</div>
+          <div id="button-two" class="unselectable flex">B</div>
+        </div>
+      </div>
+    </div>
+    <!-- device with background img -->
+  </body>
+  <script src="scripts/device.js"></script>
+  <script src="scripts/gamelogic.js"></script>
+</html>
