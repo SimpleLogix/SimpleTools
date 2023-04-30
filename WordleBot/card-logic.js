@@ -1,15 +1,17 @@
 import Card from "./card.js";
+import findBestGuess from "./algorithm.js";
 
 // the column of 5 words to be filled
 const wordsContainerElem = document.getElementById("words-container");
 const modeToggleSwitch = document.getElementById("mode");
+const guessBoard = document.getElementById("guess-board");
 
 // array of letter representing the puzzle
 let puzzle = [];
 // random word to be generated for the game
 let randomWord = "";
 // massive array of 5K+ 5-letter words
-let sgbWords = [];
+let wordsDict = {};
 // pointers to card being interacted with
 let activeRow = 0;
 let activeCard = 0; // 'col' within the activeRow
@@ -20,7 +22,9 @@ let activeCard = 0; // 'col' within the activeRow
 let userTyping = true;
 
 //? There are two modes; game and bot; play or solve
-let isBotMode = false;
+let isBotMode = true;
+// array of words and their prob. to guess if bot mode is enabled
+let guesses = {};
 
 // current word being typed
 const letters = [
@@ -78,16 +82,32 @@ const letters = [
   "Z",
 ];
 
+//? Inner class to hold the guess element, which is really:
+//? Word, divider, chance
+class GuessElem {
+  constructor(word, divider, chance) {
+    this.word = word;
+    this.divider = divider;
+    this.chance = chance;
+  }
+}
+//? This is an array that will hold all of the guess
+//? and their elements
+let guessElems = [];
+
 //! MAIN
 // read in file used to create a guess and provide inferred guesses
 readWordsFile().then((words) => {
   // set a random word
-  sgbWords = words;
+  wordsDict = words;
+  guesses = wordsDict;
   randomWord = pickRandomWord();
   // draw the cards to the screen then listen for input
   modeToggleSwitch.checked = isBotMode;
   modeToggleSwitch.addEventListener("click", switchModes);
   drawCards();
+  drawGuessBoard();
+  resetGuessBoard();
   document.addEventListener("keydown", handleKeyboardEvent);
 });
 
@@ -113,6 +133,9 @@ function switchModes() {
   resetCards();
   if (!isBotMode) {
     randomWord = pickRandomWord();
+    guessBoard.style.display = "none";
+  } else {
+    guessBoard.style.display = "flex";
   }
 }
 
@@ -163,6 +186,7 @@ function submitWord() {
 
   // second submit checks if user picked all options for the letters
   if (isBotMode && userSelectedAllCards()) {
+    updateGuessValues();
     moveToNextRow();
     userTyping = true;
   }
@@ -171,6 +195,16 @@ function submitWord() {
   if (!isBotMode && !userTyping) {
     handleSubmitForGameMode();
   }
+}
+
+// updates the internal list of words to guess and their chances
+// this is called when the user submits a word and the algorithm
+// tries to find the next best word to guess using the context clues
+function updateGuessValues() {
+  guesses = findBestGuess(puzzle, guesses);
+
+  // update the UI to reflect the new guesses
+  updateGuessBoard();
 }
 
 //checks if the user selected an option/type for all cards in the row before moving down
@@ -232,8 +266,9 @@ function handleCardClick(row, card) {
 
 // creates a new game, with a random word
 function pickRandomWord() {
-  const rng = Math.floor(Math.random() * sgbWords.length);
-  return sgbWords[rng].toUpperCase();
+  const rng = Math.floor(Math.random() * wordsDict.size);
+  const word = Array.from(wordsDict.keys())[rng];
+  return word;
 }
 
 // runs tests to see if the user word matches the word to be guessed
@@ -264,7 +299,7 @@ function checkLetterPositions() {
     else if (randomWord.includes(guessedLetter)) {
       puzzle[activeRow][i].setToOrange();
     }
-    // else; letter is not in word 
+    // else; letter is not in word
     else {
       puzzle[activeRow][i].setToGrey();
     }
@@ -272,13 +307,56 @@ function checkLetterPositions() {
   return false;
 }
 
-// returns a string version of the word represented in cards
-function buildWordFromCards(row) {
-  let word = "";
-  for (let i = 0; i < 5; i++) {
-    word += puzzle[row][i].letter;
+// creates the guess board ui with the words
+// user should guess and their probabilities
+function drawGuessBoard() {
+  for (let i = 0; i < 10; i++) {
+    // create the elements
+    const guessContainerElem = document.createElement("div");
+    const guessElem = document.createElement("div");
+    const dividerElem = document.createElement("div");
+    const chanceElem = document.createElement("div");
+
+    // add the classes and styles
+    guessContainerElem.classList.add("guess-container");
+
+    // add elements to container and container to doc
+    guessContainerElem.appendChild(guessElem);
+    guessContainerElem.appendChild(dividerElem);
+    guessContainerElem.appendChild(chanceElem);
+    guessBoard.appendChild(guessContainerElem);
+
+    // add elements to an object into an arr to keep track
+    const guess = new GuessElem(guessElem, dividerElem, chanceElem);
+    guessElems.push(guess);
   }
-  return word;
+}
+
+// Updates the ui context to match internal guess list
+function updateGuessBoard() {
+  resetGuessBoard();
+
+  let guessArr = Array.from(guesses.keys());
+  let chanceArr = Array.from(guesses.values());
+
+  // set elements to the guesses
+  for (let i = 0; i < guesses.size; i++) {
+    if (guesses.size > 0) {
+      guessElems[i].word.textContent = guessArr[i];
+      guessElems[i].divider.classList.add("divider");
+      guessElems[i].chance.textContent = chanceArr[i] + " %";
+    }
+  }
+}
+
+// resets the ui guess elements
+function resetGuessBoard() {
+  for (let i = 0; i < guessElems.length; i++) {
+    const element = guessElems[i];
+    element.word.textContent = "";
+    element.divider.classList.remove("divider");
+    element.chance.textContent = "";
+  }
 }
 
 // opens file to read in words
@@ -286,7 +364,11 @@ function readWordsFile() {
   return fetch("sgb-words.txt")
     .then((response) => response.text())
     .then((data) => {
-      const words = data.split("\n");
-      return words;
+      let words = data.split("\n");
+      const newGuessesMap = new Map();
+      words.forEach((word) => {
+        newGuessesMap.set(word.toUpperCase(), 0);
+      });
+      return newGuessesMap;
     });
 }
