@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+}
+
+#canvas-parent {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  background-color: rgb(19, 15, 64);
+}

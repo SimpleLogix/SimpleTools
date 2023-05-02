@@ -6,7 +6,7 @@ const wordsContainerElem = document.getElementById("words-container");
 const modeToggleSwitch = document.getElementById("mode");
 const guessBoard = document.getElementById("guess-board");
 
-// array of letter representing the puzzle
+// array of letters representing the puzzle
 let puzzle = [];
 // random word to be generated for the game
 let randomWord = "";
