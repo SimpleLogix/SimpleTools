@@ -1,0 +1,110 @@
+:root {
+    --bg-url: "https://images.unsplash.com/photo-1510020553968-30f966e1ec9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+}
+
+body {
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-image {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    background-image: url("https://images.unsplash.com/photo-1510020553968-30f966e1ec9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80");
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    margin: 0px;
+    padding: 0px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    height: 100%;
+
+}
+
+.main-container-top-half {
+    flex: 2;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    padding: 8vw;
+}
+
+.main-container-bottom-half {
+    flex: 1;
+    background-color: rgba(48, 57, 82, 0.5);
+    margin: 0px;
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.forecast-row {
+    justify-content: space-evenly;
+    width: 100vw;
+
+}
+
+.time-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.today-temp-container {
+    flex-direction: column;
+}
+
+#time {
+    font-size: 100px;
+}
+
+#date {
+    font-size: 32px;
+}
+
+#city {
+    font-size: 65px;
+    padding-bottom: 30px;
+}
+
+#forecast-temp-0 {
+    font-size: 36px;
+    padding-top: 15px
+}
+
+.forecast-item {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.forecast-day {
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 6px 12px;
+
+}
+
+.forecast-weathercode {
+    display: flex;
+    padding: 8px;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "Weather Forecast App",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimpleLogix/SimpleTools.git"
+  },
+  "keywords": [
+    "weather"
+  ],
+  "author": "walid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SimpleLogix/SimpleTools/issues"
+  },
+  "homepage": "https://github.com/SimpleLogix/SimpleTools#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1"
+  }
+}
