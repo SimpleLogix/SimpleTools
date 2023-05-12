@@ -4,6 +4,8 @@ import { weatherCodeInfo, weatherCodeImg } from './weathercodes.js'
 // Fetch the current weather data
 let weatherData: WeatherData = await fetchWeatherData()
 
+
+
 // load in document models
 for (let i = 0; i < 7; i++) {
   const weatherCodeElem = document.getElementById(`forecast-weathercode-${i}`)
@@ -20,13 +22,16 @@ for (let i = 0; i < 7; i++) {
       weatherCodeImg.get(weatherData.weatherCode)!
     )
 
+    // set city info
+    const inputElem = document.getElementById("city") as HTMLInputElement
+    inputElem.value = weatherData.geolocation.city
 
   } else {
     const dayElem = document.getElementById(`forecast-day-${i}`)
     tempElem!.textContent = weatherData.dailyTemps[i].avg + '°C'
     dayElem!.textContent = weatherData.dailyTemps[i].dayOfWeek
 
-    const src = weatherCodeImg.get(weatherData.weatherCode)
+    const src = weatherCodeImg.get(weatherData.dailyTemps[i].weatherCode)
 
     //set the image source to the weathercode (div -> img)
     const weatherCodeElem = document.getElementById(`forecast-weathercode-${i}`)!
@@ -34,5 +39,6 @@ for (let i = 0; i < 7; i++) {
     weatherCodeElem.innerHTML = `<img id="forecast-weathercode-${i}  class="forecast-weathercode" src="${src}" width="75">`
   }
 }
+
 
 

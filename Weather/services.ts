@@ -72,11 +72,10 @@ export const fetchWeatherData = async (
     }
     dailyTemps.push(dailyTemp)
   }
-
   
   // put daily temps into the data object
   const data: WeatherData = {
-    geolocation: geoData,
+    geolocation: weatherData.geolocation,
     currentTemp: weatherData.currentTemp,
     weatherCode: weatherData.weatherCode,
     isDay: weatherData.isday,

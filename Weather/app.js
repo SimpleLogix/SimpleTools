@@ -11,12 +11,15 @@ for (let i = 0; i < 7; i++) {
         tempElem.textContent = weatherData.currentTemp + '°C';
         //set the image source to the weathercode
         weatherCodeElem.setAttribute('src', weatherCodeImg.get(weatherData.weatherCode));
+        // set city info
+        const inputElem = document.getElementById("city");
+        inputElem.value = weatherData.geolocation.city;
     }
     else {
         const dayElem = document.getElementById(`forecast-day-${i}`);
         tempElem.textContent = weatherData.dailyTemps[i].avg + '°C';
         dayElem.textContent = weatherData.dailyTemps[i].dayOfWeek;
-        const src = weatherCodeImg.get(weatherData.weatherCode);
+        const src = weatherCodeImg.get(weatherData.dailyTemps[i].weatherCode);
         //set the image source to the weathercode (div -> img)
         const weatherCodeElem = document.getElementById(`forecast-weathercode-${i}`);
         weatherCodeElem.classList.remove("loader");
