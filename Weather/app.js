@@ -19,7 +19,7 @@ for (let i = 0; i < 7; i++) {
         const src = weatherCodeImg.get(weatherData.weatherCode);
         //set the image source to the weathercode (div -> img)
         const weatherCodeElem = document.getElementById(`forecast-weathercode-${i}`);
-        weatherCodeElem.classList.remove("lds-ripple");
+        weatherCodeElem.classList.remove("loader");
         weatherCodeElem.innerHTML = `<img id="forecast-weathercode-${i}  class="forecast-weathercode" src="${src}" width="75">`;
     }
 }
