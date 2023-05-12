@@ -11,7 +11,9 @@ for (let i = 0; i < 7; i++) {
 
   // set the temps and doay of week
   if (i == 0) {
+
     tempElem!.textContent = weatherData.currentTemp + '°C'
+
     //set the image source to the weathercode
     weatherCodeElem!.setAttribute(
       'src',
@@ -28,3 +30,5 @@ for (let i = 0; i < 7; i++) {
     )
   }
 }
+
+
