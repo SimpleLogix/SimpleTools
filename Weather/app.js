@@ -16,7 +16,10 @@ for (let i = 0; i < 7; i++) {
         const dayElem = document.getElementById(`forecast-day-${i}`);
         tempElem.textContent = weatherData.dailyTemps[i].avg + '°C';
         dayElem.textContent = weatherData.dailyTemps[i].dayOfWeek;
-        //set the image source to the weathercode
-        weatherCodeElem.setAttribute('src', weatherCodeImg.get(weatherData.dailyTemps[i].weatherCode));
+        const src = weatherCodeImg.get(weatherData.weatherCode);
+        //set the image source to the weathercode (div -> img)
+        const weatherCodeElem = document.getElementById(`forecast-weathercode-${i}`);
+        weatherCodeElem.classList.remove("lds-ripple");
+        weatherCodeElem.innerHTML = `<img id="forecast-weathercode-${i}  class="forecast-weathercode" src="${src}" width="75">`;
     }
 }
